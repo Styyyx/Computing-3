@@ -4,20 +4,24 @@ import SolutionWindow as sw
 class MainWindow(tk.Frame):
   def __init__(self, master=None):
     tk.Frame.__init__(self, master=None)
-    self.screen = {'width': self.master.winfo_screenwidth(), 'height' : self.master.winfo_screenheight()}
-    self.MasterSettings()
-    self.CreateWidgets()
+    screen = {'width': self.master.winfo_screenwidth(), 'height' : self.master.winfo_screenheight()}
+    
+    self.row = tk.StringVar()
+    self.col = tk.StringVar()
 
-  def MasterSettings(self):
+    self.InitializeSelf()
+    self.CreateWidgets()
+    
+
+  def InitializeSelf(self):
+    screen = {'width': self.master.winfo_screenwidth(), 'height' : self.master.winfo_screenheight()}
     self.master.geometry(
-      f"400x300+{int((self.screen['width']-400)/2)}+{int((self.screen['height']-300)/2)}"
+      f"400x300+{int((screen['width']-400)/2)}+{int((screen['height']-300)/2)}"
     )
     self.master.title('Computing')
     self.master.resizable(width=False, height=False)
-    self.master.columnconfigure(0, weight=1)
-    self.master.columnconfigure(1, weight=1)
-    self.master.columnconfigure(2, weight=1)
-    self.master.columnconfigure(3, weight=1)
+    for i in range(4):
+      self.master.columnconfigure(i, weight=1)
 
   def CreateWidgets(self):
     self.labelTitle = tk.Label(
@@ -38,22 +42,26 @@ class MainWindow(tk.Frame):
       master=self.master,
       font=('Arial', 12),
       width=4,
+      textvariable = self.row
     ).grid(row=3, column=1, columnspan=1, sticky=tk.E, padx=(0,10))
 
     self.entryColumns = tk.Entry(
       master=self.master,
       font=('Arial', 12),
       width=4,
+      textvariable=self.col
     ).grid(row=3, column=2, columnspan=1, sticky=tk.W, padx=(10,0))
 
     self.btnCreate = tk.Button(
       master=self.master,
-      command=CreateMatrix,
+      command=self.CreateMatrix,
       text='Create Matrix'
     ).grid(row=4, column=1, columnspan=2, pady=(20,0))
 
   # btnCreate Event Handler
   def CreateMatrix(self):
-    row = int(self.entryRows.get())
-    col = int(self.entryColumns.get())
+    row = int(self.row.get())
+    col = int(self.col.get())
+    self.master.withdraw()
+    newWindow = sw.SolutionWindow((row,col), master=self.master)
     
