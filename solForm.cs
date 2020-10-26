@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gauss_Jordan_Elimination_Calculator
+namespace Computing3
 {
     public partial class solForm : Form
     {

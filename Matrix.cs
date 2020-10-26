@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gauss_Jordan_Elimination_Calculator
+namespace Computing3
 {
     class Matrix
     {

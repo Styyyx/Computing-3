@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gauss_Jordan_Elimination_Calculator
+namespace Computing3
 {
     static class Program
     {
