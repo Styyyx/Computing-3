@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,33 +12,38 @@ namespace Computing3
             InitializeComponent();
         }
 
-        private void txtRows_KeyPress(object sender, KeyPressEventArgs e)
+        private void ValidateTBox(object sender, KeyPressEventArgs e)
         {
-            // Check if inputed row is a number
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnCreate.PerformClick();
+            }
+            else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
-        private void txtColumns_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Check if inputed column is a number
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-        }       
-        private void btnCreate_Click(object sender, EventArgs e)
-        {
-            int rows = int.Parse(txtRows.Text);
-            int columns = int.Parse(txtColumns.Text);
 
-            // Check if rows and columns input are more than 1
-            if ((rows > 1) && (columns > 1))
+        private async void btnCreate_Click(object sender, EventArgs e)
+        {
+            string rows = txtRows.Text, cols = txtColumns.Text;
+            if (rows != "" && cols != "")
             {
-                var setForm = new setForm();
+                var setForm = new setForm(int.Parse(rows), int.Parse(cols));
                 setForm.Show();
                 this.Hide();
+            }
+            else
+            {
+                // Find a way to refresh task when clicked while still fading out
+                await Task.Run(async () =>
+                {
+                    for (int i = 0; i <255; i+=5)
+                    {
+                        labInvalidInput.ForeColor = Color.FromArgb(255, i, i);
+                        await Task.Delay(5);
+                    }
+                });
             }
         }
     }
