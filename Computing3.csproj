@@ -60,20 +60,11 @@
       <DependentUpon>setForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="solForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="solForm.Designer.cs">
-      <DependentUpon>solForm.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="setForm.resx">
       <DependentUpon>setForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="solForm.resx">
-      <DependentUpon>solForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
