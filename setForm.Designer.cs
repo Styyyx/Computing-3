@@ -30,11 +30,13 @@
         {
             this.btnSolve = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.panelButtons = new System.Windows.Forms.Panel();
+            this.panelTbox = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFill = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.labError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSolve
@@ -47,6 +49,7 @@
             this.btnSolve.TabIndex = 5;
             this.btnSolve.Text = "SOLVE MATRIX";
             this.btnSolve.UseVisualStyleBackColor = true;
+            this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
             // 
             // label3
             // 
@@ -60,14 +63,14 @@
             this.label3.Text = "Enter matrix elements:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelButtons
+            // panelTbox
             // 
-            this.panelButtons.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelButtons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelButtons.Location = new System.Drawing.Point(275, 180);
-            this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(2, 2);
-            this.panelButtons.TabIndex = 10;
+            this.panelTbox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelTbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTbox.Location = new System.Drawing.Point(275, 180);
+            this.panelTbox.Name = "panelTbox";
+            this.panelTbox.Size = new System.Drawing.Size(2, 2);
+            this.panelTbox.TabIndex = 10;
             // 
             // label2
             // 
@@ -102,6 +105,7 @@
             this.btnFill.TabIndex = 11;
             this.btnFill.Text = "FILL WITH ZERO";
             this.btnFill.UseVisualStyleBackColor = true;
+            this.btnFill.Click += new System.EventHandler(this.btnFill_Click);
             // 
             // btnClear
             // 
@@ -113,6 +117,29 @@
             this.btnClear.TabIndex = 12;
             this.btnClear.Text = "CLEAR MATRIX";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnClear_MouseClick);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnBack.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(12, 38);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(57, 31);
+            this.btnBack.TabIndex = 13;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // labError
+            // 
+            this.labError.AutoSize = true;
+            this.labError.ForeColor = System.Drawing.SystemColors.Control;
+            this.labError.Location = new System.Drawing.Point(257, 300);
+            this.labError.Name = "labError";
+            this.labError.Size = new System.Drawing.Size(65, 13);
+            this.labError.TabIndex = 14;
+            this.labError.Text = "Fill All Boxes";
             // 
             // setForm
             // 
@@ -120,9 +147,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(584, 361);
+            this.Controls.Add(this.labError);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnFill);
-            this.Controls.Add(this.panelButtons);
+            this.Controls.Add(this.panelTbox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSolve);
             this.Controls.Add(this.label2);
@@ -140,10 +169,12 @@
         #endregion
         private System.Windows.Forms.Button btnSolve;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panelButtons;
+        private System.Windows.Forms.Panel panelTbox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFill;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label labError;
     }
 }

@@ -8,130 +8,103 @@ namespace Computing3
 {
     class Matrix
     {
-        #region Test Cases
-
-        static float[,] Test1 = new float[,] {
-            {0, 1, 1, -2, -3 },
-            {1, 2, -1, 0, 2 },
-            {2, 4, 1, -3, -2 },
-            {1, -4, -7, -1, 19 }
-
-            /* Answer
-             * 
-             * 1   0   0   0   1.923
-             * 0   1   0   0  -0.923
-             * 0   0   1   0  -1.923
-             * 0   0   0   1   0.077
-             *  
-             */
-        };
-
-
-        static float[,] Test2 = new float[,]
-        {
-            {0, 0, 0, 0, 1 },
-            {0, 0, 0, 1, 2 },
-            {0, 0, 1, 2, 3 },
-            {0, 1, 2, 3, 4 }
-        };
-
-        static float[,] Test3 = new float[,]
-        {
-            {0, 1, 0, 2, 0 },
-            {1, 0, 2, 3, 0 },
-            {0, 0 ,0 ,1, 2 },
-            {0, 0, 2, 0 ,1 }
-        };
-        #endregion
-
-        static float[,] RREF(float[,] m)
+        public static List<List<float>> RREF(List<List<float>> m)
         {
             m = SortMatrix(m);
-            int rows = m.GetLength(0), cols = m.GetLength(1);
+            int rows = m.Count(), cols = m[0].Count();
 
             // To Upper Triangular Matrix
-            for (int pivot = 0; pivot <= rows - 1; pivot++)
+            for (int leadRow = 0; leadRow < rows; leadRow++)
             {
-                float pivotValue = m[pivot, pivot];
-
-                // Check if pivotvalue is 0 to avoid division by 0
-                if (pivotValue == 0)
+                int leadCol = 0;
+                float leadCoeff = m[leadRow][leadCol];
+                while (leadCoeff == 0)
                 {
-                    m = SortMatrix(m);
-                    // Reassign pivot value
-                    pivotValue = m[pivot, pivot];
+                    // If whole matrix is zeroes, return as is
+                    if (leadCol == cols - 1) { return m; }
+                    leadCol++;
+                    leadCoeff = m[leadRow][leadCol];
                 }
 
-                // If pivot value still 0 after sort, change pivotcolumn until pivotvalue != 0
-                int n = pivot;
-                while (pivotValue == 0)
+                //Divide row by leadCoeff
+                for (int col = leadCol; col < cols; col++)
                 {
-                    n++;
-                    if (n >= rows) { break; }
-                    pivotValue = m[pivot, n];
+                    m[leadRow][col] = m[leadRow][col] / leadCoeff;
                 }
 
-                // Make leading coefficient = 1
-                for (int col = 0; col < cols; col++)
+                //Subtract leadRow to all succeeding rows
+                for (int row = leadRow + 1; row < rows; row++)
                 {
-                    m[pivot, col] = m[pivot, col] / pivotValue;
-                }
-
-                if (pivot == rows) { break; }
-                // Iterate through all rows after pivot
-                for (int row = pivot + 1; row < rows; row++)
-                {
-                    if (m[row, pivot] == 0) { break; }
-                    float scalar = m[row, pivot];
-                    for (int col = pivot; col < cols; col++)
+                    float scalar = m[row][leadCol];
+                    if (scalar == 0) { continue; }
+                    else
                     {
-                        m[row, col] = m[row, col] - (m[pivot, col] * scalar);
+                        for (int col = leadCol; col < cols; col++)
+                        {
+                            m[row][col] = m[row][col] - (m[leadRow][col] * scalar);
+                        }
                     }
                 }
             }
+
+            m = SortMatrix(m);
 
             //To RREF
-            for (int pivot = (rows - 1); pivot > 0; pivot--)
+            for (int trailRow = rows - 1; trailRow > 0; trailRow--)
             {
-                for (int row = pivot - 1; row >= 0; row--)
+                int leadCol = 0;
+                float leadCoeff = m[trailRow][leadCol];
+                while (leadCoeff == 0)
                 {
-                    float scalar = m[row, pivot];
-                    for (int col = cols - 1; col > 0; col--)
+                    if (leadCol == cols - 1) { break; }
+                    leadCol++;
+                    leadCoeff = m[trailRow][leadCol];
+                }
+                if (leadCoeff == 1)
+                {
+                    for (int row = trailRow - 1; row >= 0; row--)
                     {
-                        m[row, col] = m[row, col] - (m[pivot, col] * scalar);
+                        float scalar = m[row][leadCol];
+                        for (int col = leadCol; col < cols; col++)
+                        {
+                            m[row][col] = m[row][col] - (m[trailRow][col] * scalar);
+                        }
                     }
                 }
             }
-            return m;
+            return SortMatrix(m);
         }
 
-        static float[,] SortMatrix(float[,] matrix)
+        /// <summary>
+        /// Bubble Sort. Puts the row with the most leading zeroes to the bottom.
+        /// </summary>
+        /// <param name="m">The matrix to be sorted</param>
+        /// <returns>Sorted Matrix</returns>
+        static public List<List<float>> SortMatrix(List<List<float>> m)
         {
-            int rowSize = matrix.GetLength(0), colSize = matrix.GetLength(1);
+            int rowSize = m.Count(), colSize = m[0].Count();
             for (int i = 0; i < rowSize - 1; i++)
             {
                 for (int j = 0; j < rowSize - i - 1; j++)
                 {
                     for (int k = 0; k < colSize; k++)
                     {
-                        if (matrix[j, k] == 0 && matrix[j + 1, k] != 0)
+                        if (m[j][k] == 0 && m[j + 1][k] != 0)
                         {
-                            // Swap rows [j] and [j+1]
                             for (int col = 0; col < colSize; col++)
                             {
-                                float temp = matrix[j, col];
-                                matrix[j, col] = matrix[j + 1, col];
-                                matrix[j + 1, col] = temp;
+                                float temp = m[j][col];
+                                m[j][col] = m[j + 1][col];
+                                m[j + 1][col] = temp;
                             }
                             break;
                         }
-                        else if (matrix[j, k] == 0 && matrix[j + 1, k] == 0) { continue; }
+                        else if (m[j][k] == 0 && m[j + 1][k] == 0) { continue; }
                         else { break; }
                     }
                 }
             }
-
-            return matrix;
+            return m;
         }
     }
 }
