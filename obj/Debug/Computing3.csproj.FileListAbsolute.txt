@@ -1,0 +1,10 @@
+C:\Users\reann\Source\Repos\Styyyx\Computing-3\bin\Debug\Gauss-Jordan Elimination Calculator.exe.config
+C:\Users\reann\Source\Repos\Styyyx\Computing-3\bin\Debug\Gauss-Jordan Elimination Calculator.exe
+C:\Users\reann\Source\Repos\Styyyx\Computing-3\bin\Debug\Gauss-Jordan Elimination Calculator.pdb
+C:\Users\reann\Source\Repos\Styyyx\Computing-3\obj\Debug\Computing3.csprojAssemblyReference.cache
+C:\Users\reann\Source\Repos\Styyyx\Computing-3\obj\Debug\Computing3.mainForm.resources
+C:\Users\reann\Source\Repos\Styyyx\Computing-3\obj\Debug\Computing3.setForm.resources
+C:\Users\reann\Source\Repos\Styyyx\Computing-3\obj\Debug\Computing3.csproj.GenerateResource.cache
+C:\Users\reann\Source\Repos\Styyyx\Computing-3\obj\Debug\Computing3.csproj.CoreCompileInputs.cache
+C:\Users\reann\Source\Repos\Styyyx\Computing-3\obj\Debug\Gauss-Jordan Elimination Calculator.exe
+C:\Users\reann\Source\Repos\Styyyx\Computing-3\obj\Debug\Gauss-Jordan Elimination Calculator.pdb
