@@ -121,7 +121,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnBack.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Location = new System.Drawing.Point(12, 38);
             this.btnBack.Name = "btnBack";
@@ -140,6 +140,7 @@
             this.labError.Size = new System.Drawing.Size(65, 13);
             this.labError.TabIndex = 14;
             this.labError.Text = "Fill All Boxes";
+            this.labError.Visible = false;
             // 
             // setForm
             // 
@@ -161,6 +162,7 @@
             this.Text = "Gauss-Jordan Elimination Calculator";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.setForm_FormClosed);
             this.Load += new System.EventHandler(this.setForm_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

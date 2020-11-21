@@ -24,6 +24,18 @@ namespace Computing3
             InitializeComponent();
         }
 
+        private void Form_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSolve.PerformClick();
+            }
+            else if (e.KeyChar == '.' && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void setForm_Load(object sender, EventArgs e)
         {
             GenerateMatrix();
@@ -75,20 +87,8 @@ namespace Computing3
             }
             else
             {
-                ShowError();
+                mainForm.ShowError(labError);
             }
-        }
-
-        private async void ShowError()
-        {
-            await Task.Run(async () =>
-            {
-                for (int i = 0; i < 255; i += 5)
-                {
-                    labError.ForeColor = Color.FromArgb(255, i, i);
-                    await Task.Delay(5);
-                }
-            });
         }
 
         static public void tboxClick(object sender, EventArgs e)
@@ -128,13 +128,14 @@ namespace Computing3
                     tbox.Font = new Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     tbox.Location = new Point(posX, posY);
                     tbox.Click += new System.EventHandler(tboxClick);
+                    tbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form_KeyPress);
 
                     this.panelTbox.Controls.Add(tbox);
                     lst.Add(tbox);
                 }
                 matrixTbox.Add(lst);
             }
-            panelTbox.Size = new Size(5 + (55 * this.colSize), 5 + (25 * this.rowSize));
+            panelTbox.Size = new Size(10 + (55 * this.colSize), 10 + (25 * this.rowSize));
             int sizeX = this.Size.Width, sizeY = this.Size.Height, panelX = panelTbox.Size.Width, panelY = panelTbox.Size.Height;
             panelTbox.Location = new Point((sizeX - panelX) / 2, (sizeY - panelY) / 2);
         }
