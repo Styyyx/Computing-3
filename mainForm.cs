@@ -41,20 +41,22 @@ namespace Computing3
             if (txtRows.Text != "" && txtColumns.Text != "")
             {
                 int rows = Int32.Parse(txtRows.Text), cols = Int32.Parse(txtColumns.Text);
-                if (rows > 1 && cols > 1)
+                if (rows > 1 && (rows+1 == cols))
                 {
                     var setForm = new setForm(rows, cols);
                     this.Hide();
                     setForm.ShowDialog();
                     this.Show();
                 }
-                else { ShowError(labInvalidInput); }
+                else { ShowError(labError, "Dimension will yield a dependent solution"); }
             }
-            else { ShowError(labInvalidInput); }
+            else { ShowError(labError, "Missing Input"); }
         }
 
-        public static void ShowError(Label lbl)
+        public static void ShowError(Label lbl, string msg)
         {
+            lbl.Text = msg;
+            lbl.Left = (lbl.Parent.Width - lbl.Width) / 2;
             tknSrc.Cancel();
             tknSrc = new CancellationTokenSource();
             Fade(lbl, tknSrc.Token);

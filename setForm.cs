@@ -87,7 +87,7 @@ namespace Computing3
             }
             else
             {
-                mainForm.ShowError(labError);
+                mainForm.ShowError(labError, "Missing Input");
             }
         }
 

@@ -36,7 +36,7 @@
             this.lblMatrixDimensions = new System.Windows.Forms.Label();
             this.txtColumns = new System.Windows.Forms.TextBox();
             this.txtRows = new System.Windows.Forms.TextBox();
-            this.labInvalidInput = new System.Windows.Forms.Label();
+            this.labError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCreate
@@ -125,24 +125,25 @@
             this.txtRows.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRows.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidateTBox);
             // 
-            // labInvalidInput
+            // labError
             // 
-            this.labInvalidInput.AutoSize = true;
-            this.labInvalidInput.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labInvalidInput.ForeColor = System.Drawing.SystemColors.Control;
-            this.labInvalidInput.Location = new System.Drawing.Point(255, 236);
-            this.labInvalidInput.Name = "labInvalidInput";
-            this.labInvalidInput.Size = new System.Drawing.Size(75, 16);
-            this.labInvalidInput.TabIndex = 6;
-            this.labInvalidInput.Text = "Invalid Input";
-            this.labInvalidInput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labError.AutoSize = true;
+            this.labError.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labError.ForeColor = System.Drawing.SystemColors.Control;
+            this.labError.Location = new System.Drawing.Point(255, 236);
+            this.labError.Name = "labError";
+            this.labError.Size = new System.Drawing.Size(36, 16);
+            this.labError.TabIndex = 6;
+            this.labError.Text = "Error";
+            this.labError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labError.Visible = false;
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
-            this.Controls.Add(this.labInvalidInput);
+            this.Controls.Add(this.labError);
             this.Controls.Add(this.lblMatrixDimensions);
             this.Controls.Add(this.lblColumns);
             this.Controls.Add(this.lblRows);
@@ -170,7 +171,7 @@
         private System.Windows.Forms.Label lblMatrixDimensions;
         private System.Windows.Forms.TextBox txtColumns;
         private System.Windows.Forms.TextBox txtRows;
-        private System.Windows.Forms.Label labInvalidInput;
+        private System.Windows.Forms.Label labError;
     }
 }
 
