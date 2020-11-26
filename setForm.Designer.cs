@@ -43,7 +43,7 @@
             // 
             this.btnSolve.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSolve.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSolve.Location = new System.Drawing.Point(377, 316);
+            this.btnSolve.Location = new System.Drawing.Point(402, 321);
             this.btnSolve.Name = "btnSolve";
             this.btnSolve.Size = new System.Drawing.Size(160, 33);
             this.btnSolve.TabIndex = 5;
@@ -56,7 +56,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(218, 80);
+            this.label3.Location = new System.Drawing.Point(243, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 16);
             this.label3.TabIndex = 9;
@@ -67,7 +67,7 @@
             // 
             this.panelTbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelTbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTbox.Location = new System.Drawing.Point(275, 180);
+            this.panelTbox.Location = new System.Drawing.Point(300, 185);
             this.panelTbox.Name = "panelTbox";
             this.panelTbox.Size = new System.Drawing.Size(2, 2);
             this.panelTbox.TabIndex = 10;
@@ -77,7 +77,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(162, 33);
+            this.label2.Location = new System.Drawing.Point(187, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(252, 36);
             this.label2.TabIndex = 4;
@@ -89,7 +89,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 9);
+            this.label1.Location = new System.Drawing.Point(83, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(460, 24);
             this.label1.TabIndex = 2;
@@ -99,7 +99,7 @@
             // 
             this.btnFill.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnFill.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFill.Location = new System.Drawing.Point(211, 316);
+            this.btnFill.Location = new System.Drawing.Point(236, 321);
             this.btnFill.Name = "btnFill";
             this.btnFill.Size = new System.Drawing.Size(160, 33);
             this.btnFill.TabIndex = 11;
@@ -111,7 +111,7 @@
             // 
             this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnClear.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(45, 316);
+            this.btnClear.Location = new System.Drawing.Point(70, 321);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(160, 33);
             this.btnClear.TabIndex = 12;
@@ -121,9 +121,8 @@
             // 
             // btnBack
             // 
-            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnBack.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(12, 38);
+            this.btnBack.Location = new System.Drawing.Point(12, 12);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(57, 31);
             this.btnBack.TabIndex = 13;
@@ -134,10 +133,11 @@
             // labError
             // 
             this.labError.AutoSize = true;
+            this.labError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labError.ForeColor = System.Drawing.SystemColors.Control;
-            this.labError.Location = new System.Drawing.Point(257, 300);
+            this.labError.Location = new System.Drawing.Point(274, 302);
             this.labError.Name = "labError";
-            this.labError.Size = new System.Drawing.Size(65, 13);
+            this.labError.Size = new System.Drawing.Size(84, 16);
             this.labError.TabIndex = 14;
             this.labError.Text = "Fill All Boxes";
             // 
