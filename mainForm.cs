@@ -41,14 +41,14 @@ namespace Computing3
             if (txtRows.Text != "" && txtColumns.Text != "")
             {
                 int rows = Int32.Parse(txtRows.Text), cols = Int32.Parse(txtColumns.Text);
-                if (rows > 1 && (rows+1 == cols))
+                if (rows > 1 && cols > 1)
                 {
                     var setForm = new setForm(rows, cols);
                     this.Hide();
                     setForm.ShowDialog();
                     this.Show();
                 }
-                else { ShowError(labError, "Dimension will yield a dependent solution"); }
+                else { ShowError(labError, "1x1 is not a matrix"); }
             }
             else { ShowError(labError, "Missing Input"); }
         }

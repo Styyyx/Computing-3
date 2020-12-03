@@ -5,16 +5,21 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Computing3", "Computing3.csproj", "{1DCD29D9-C2DE-4285-86A4-EBA484D1FFF6}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "RREFMatrixCalculator", "..\Computing3_setup\Computing3_setup.vdproj", "{95B61868-7B1D-4AD7-A09C-B72D17F0DE2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1DCD29D9-C2DE-4285-86A4-EBA484D1FFF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DCD29D9-C2DE-4285-86A4-EBA484D1FFF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DCD29D9-C2DE-4285-86A4-EBA484D1FFF6}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{1DCD29D9-C2DE-4285-86A4-EBA484D1FFF6}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{1DCD29D9-C2DE-4285-86A4-EBA484D1FFF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DCD29D9-C2DE-4285-86A4-EBA484D1FFF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95B61868-7B1D-4AD7-A09C-B72D17F0DE2D}.Debug|Any CPU.ActiveCfg = Release
+		{95B61868-7B1D-4AD7-A09C-B72D17F0DE2D}.Debug|Any CPU.Build.0 = Release
+		{95B61868-7B1D-4AD7-A09C-B72D17F0DE2D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
